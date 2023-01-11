@@ -1,19 +1,35 @@
+
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p v-bind:style="{ 'font-size': `${size}px` }">
+      {{ name }} <span v-text="surname"></span>
+    </p>
+
+    <button @click="toggleName">Change name</button>
+ 
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import HelloWorld from './components/HelloWorld.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: "App",
+    data() {
+        return {
+            name: "Simi",
+            surname: "Da-Walang",
+            size: 50,
+        };
+    },
+    methods: {
+      toggleName() {
+        this.name = 'Siri'
+      }
+    },
+    components: HelloWorld,
+};
 </script>
 
 <style>
